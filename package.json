@@ -1,0 +1,23 @@
+{
+  "name": "sequoia-math",
+  "version": "0.1.0",
+  "description": "Distance learning aids for the Sequoia math dept",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dxprog/sequoia-math.git"
+  },
+  "author": "Matt Hackmann <matt@dxprog.com>",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/dxprog/sequoia-math/issues"
+  },
+  "homepage": "https://github.com/dxprog/sequoia-math#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "googleapis": "^39.2.0"
+  }
+}
