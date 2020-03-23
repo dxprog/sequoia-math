@@ -1,4 +1,7 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const isDev = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   module: {
@@ -14,7 +17,7 @@ module.exports = {
         test: /\.s[ac]ss$/i,
         use: [
           // Creates `style` nodes from JS strings
-          'style-loader',
+          isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
           // Translates CSS into CommonJS
           'css-loader',
           // Compiles Sass to CSS
@@ -27,5 +30,10 @@ module.exports = {
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, 'static/app')
-  }
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'index.css'
+    })
+  ]
 };

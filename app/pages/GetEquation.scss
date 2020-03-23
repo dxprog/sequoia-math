@@ -1,0 +1,41 @@
+.student-form {
+  font: 18px/1 sans-serif;
+  width: 540px;
+  margin: 0 auto;
+
+  &__input {
+    margin-bottom: 12px;
+  }
+
+  &__button {
+    border: 0;
+    border-radius: 4px;
+    background: #4a0d67;
+    color: #fff;
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+    padding: 12px 0;
+    cursor: pointer;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+}
+
+.input {
+  &__label {
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  &__field,
+  &__select {
+    box-sizing: border-box;
+    padding: 8px;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    display: block;
+    width: 100%;
+    font-size: 16px;
+  }
+}
