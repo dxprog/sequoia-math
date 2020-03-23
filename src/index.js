@@ -1,10 +1,10 @@
 const express = require('express');
 const http = require('http');
 
-const getWork = require('./routes/get-work');
+const { submitEntry } = require('./routes/entry');
 const { redirectToAuth, authorize } = require('./routes/auth');
 const { 'no-redirect': googleCredentials, token } = require('../credentials');
-const { setGoogleAuthCredentials } = require('./google-sheets');
+const { setGoogleAuthCredentials } = require('./google/auth');
 
 setGoogleAuthCredentials(googleCredentials, token);
 
@@ -17,7 +17,7 @@ const PORT = 8081;
 server.listen(PORT, err => {
   if (!err) {
     console.log(`Listening on port ${PORT}`);
-    app.post('/get-work', getWork);
+    app.get('/submit-entry', submitEntry);
     app.get('/authorize', redirectToAuth);
     app.get('/oauth', authorize);
   } else {

@@ -2,8 +2,7 @@ const fs = require('fs');
 const { google } = require('googleapis');
 const path = require('path');
 
-const CREDENTIALS_FILE = path.resolve(__dirname, '../credentials.json');
-console.log(CREDENTIALS_FILE);
+const CREDENTIALS_FILE = path.resolve('credentials.json');
 
 let config = {};
 let googleClient;

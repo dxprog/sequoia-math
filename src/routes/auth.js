@@ -1,14 +1,14 @@
 const {
   getGoogleAuthClient,
   getAuthToken
-} = require('../google-sheets');
+} = require('../google/auth');
 
 function redirectToAuth(req, res) {
   const client = getGoogleAuthClient();
   const authUrl = client.generateAuthUrl({
     access_type: 'offline',
     scope: [
-      'https://www.googleapis.com/auth/spreadsheets.readonly'
+      'https://www.googleapis.com/auth/spreadsheets'
     ]
   });
   res.location(authUrl).status(302).end();
