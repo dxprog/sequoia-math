@@ -9,7 +9,7 @@ const { setGoogleAuthCredentials } = require('./google/auth');
 setGoogleAuthCredentials(googleCredentials, token);
 
 const app = express();
-app.use('/static', express.static('public'));
+app.use('/static', express.static('static'));
 const server = http.createServer(app);
 
 const PORT = 8081;
