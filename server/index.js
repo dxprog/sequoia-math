@@ -1,5 +1,6 @@
 const express = require('express');
 const http = require('http');
+const cors = require('cors');
 
 const { submitEntry } = require('./routes/entry');
 const { redirectToAuth, authorize } = require('./routes/auth');
@@ -10,6 +11,8 @@ setGoogleAuthCredentials(googleCredentials, token);
 
 const app = express();
 app.use('/static', express.static('static'));
+app.use(cors());
+app.use(express.json());
 const server = http.createServer(app);
 
 const PORT = 8081;
@@ -17,7 +20,7 @@ const PORT = 8081;
 server.listen(PORT, err => {
   if (!err) {
     console.log(`Listening on port ${PORT}`);
-    app.get('/submit-entry', submitEntry);
+    app.post('/submit-entry', submitEntry);
     app.get('/authorize', redirectToAuth);
     app.get('/oauth', authorize);
   } else {
